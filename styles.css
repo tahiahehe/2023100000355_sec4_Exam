@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+/* Common container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Posts section */
+.posts-section {
+    padding: 35px 0;
+}
+
+.posts-section h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Post cards container */
+#posts-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+/* Post card */
+.post-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-card h3 {
+    color: #4f46e5;
+    font-size: 19px;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+}
+
+.post-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Delete button */
+.delete-btn {
+    margin-top: 18px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    background-color: #1f2937;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 1000px) {
+    #posts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    #posts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+}

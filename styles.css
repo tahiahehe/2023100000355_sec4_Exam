@@ -29,7 +29,7 @@ body {
     opacity: 0.9;
 }
 
-/* Common container */
+/* Container */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -44,28 +44,25 @@ body {
 .posts-section h2 {
     font-size: 28px;
     margin-bottom: 25px;
-    color: #222;
 }
 
-/* Post cards container */
+/* Cards */
 #posts-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 22px;
 }
 
-/* Post card */
 .post-card {
     background-color: white;
     border-radius: 12px;
     padding: 22px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: 0.2s;
 }
 
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .post-card h3 {
@@ -90,12 +87,17 @@ body {
     border-radius: 7px;
     background-color: #ef4444;
     color: white;
-    font-size: 14px;
     cursor: pointer;
 }
 
 .delete-btn:hover {
     background-color: #dc2626;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    font-size: 18px;
 }
 
 /* Footer */
@@ -107,7 +109,7 @@ footer {
     color: white;
 }
 
-/* Responsive design */
+/* Responsive */
 @media (max-width: 1000px) {
     #posts-container {
         grid-template-columns: repeat(2, 1fr);

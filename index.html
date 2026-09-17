@@ -12,7 +12,7 @@
     <header class="header">
         <div class="container">
             <h1>Posts Feed</h1>
-            <p>Explore the latest posts</p>
+            <p>Explore the latest posts from our API</p>
         </div>
     </header>
 
@@ -21,7 +21,7 @@
             <h2>Latest Posts</h2>
 
             <div id="posts-container">
-                <!-- Posts will be loaded here -->
+                <p class="loading">Loading posts...</p>
             </div>
         </section>
     </main>
@@ -29,6 +29,73 @@
     <footer>
         <p>Posts Feed &copy; 2026</p>
     </footer>
+
+
+    <script>
+
+        const postsContainer = document.getElementById("posts-container");
+
+        // Fetch posts from API
+        fetch("https://jsonplaceholder.typicode.com/posts")
+            .then(response => response.json())
+            .then(posts => {
+
+                // Only take first 8 posts
+                const firstEightPosts = posts.slice(0, 8);
+
+                postsContainer.innerHTML = "";
+
+                firstEightPosts.forEach(post => {
+
+                    // Create card
+                    const card = document.createElement("div");
+                    card.className = "post-card";
+
+                    card.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p>${post.body}</p>
+                        <button class="delete-btn">Delete Post</button>
+                    `;
+
+                    // Delete button
+                    const deleteButton = card.querySelector(".delete-btn");
+
+                    deleteButton.addEventListener("click", () => {
+
+                        fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+                            method: "DELETE"
+                        })
+                        .then(response => {
+
+                            if (response.ok) {
+                                card.remove();
+                            } else {
+                                alert("Failed to delete post.");
+                            }
+
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("Something went wrong.");
+                        });
+
+                    });
+
+                    postsContainer.appendChild(card);
+
+                });
+
+            })
+            .catch(error => {
+
+                console.error("Error:", error);
+
+                postsContainer.innerHTML =
+                    "<p>Failed to load posts.</p>";
+
+            });
+
+    </script>
 
 </body>
 </html>
